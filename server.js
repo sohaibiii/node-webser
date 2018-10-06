@@ -4,6 +4,8 @@ const fs = require('fs')
 
 const app = express()
 
+const port = process.env.PORT || 3000
+
 app.set('view engine', 'hbs')
 hbs.registerPartials(__dirname + '/views/partials')
 hbs.registerHelper('datemy', () => {
@@ -41,6 +43,6 @@ app.get('/sohaib', (req, res) => {
   })
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('server is about to start')
 })
