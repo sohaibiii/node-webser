@@ -15,16 +15,16 @@ hbs.registerHelper('upper', text => {
   return text.toUpperCase()
 })
 
-app.use((req, res, next) => {
-  console.log(req.method)
-  const root = `the method is ${req.method} and the url is ${req.url}\n`
+// app.use((req, res, next) => {
+//   console.log(req.method)
+//   const root = `the method is ${req.method} and the url is ${req.url}\n`
 
-  fs.appendFileSync('ali.log', root)
-  next()
-})
-app.use((req, res, next) => {
-  res.render('update.hbs')
-})
+//   fs.appendFileSync('ali.log', root)
+//   next()
+// })
+// app.use((req, res, next) => {
+//   res.render('update.hbs')
+// })
 app.use(express.static(__dirname + '/static'))
 
 app.get('/', (req, res) => {
@@ -40,6 +40,13 @@ app.get('/sohaib', (req, res) => {
     class: 'bsse',
     age: 22,
     degree: 'se'
+  })
+})
+app.get('/projects', (req, res) => {
+  res.render('project.hbs', {
+    name: 'project',
+    class: 'probase',
+    age: 111
   })
 })
 
